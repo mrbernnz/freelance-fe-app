@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+/*
+ * import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ * import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+ */
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './homepage/homepage.component';
@@ -15,7 +20,13 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    /*
+     * BrowserAnimationsModule,
+     * MatButtonModule,
+     * MatCheckboxModule,
+     */
+    NgbModule.forRoot(),
   ],
   declarations: [
     AppComponent,

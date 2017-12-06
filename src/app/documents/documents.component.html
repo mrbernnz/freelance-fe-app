@@ -1,12 +1,14 @@
 <h1>{{pageTitle}}</h1>
 
 <ul>
-  <li *ngFor='let doc of documents'>
-    <h3>{{doc.title}}</h3>
-    <h4>{{doc.description}}</h4>
-    <a href={{file_url}}>Download File</a>
+  <li class='card' *ngFor='let doc of documents'>
+    <div class='card-block'>
+      <img class='card-img-top' src='{{doc.image_url}}' alt='document image'>
+      <h4 class='card-title'>{{doc.title}}</h4>
+      <p>{{doc.description}}</p>
+      <a class='btn btn-lg btn-primary' href={{file_url}}>Download File</a>
 
-    <p>{{doc.image_url}}</p>
-    <hr>
-  </li>
+      <p class='card-text'><small class='text-muted'>{{doc.image_url}}</small></p>
+    </div>
+</li>
 </ul>
