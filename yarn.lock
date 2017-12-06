@@ -26,9 +26,15 @@
     minimist "^1.2.0"
     rxjs "^5.5.2"
 
-"@angular/animations@^5.0.0":
+"@angular/animations@5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.0.5.tgz#8a008900a79cd9ecb0ee741534ec435cce9539a5"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/cdk@5.0.0-rc.3":
+  version "5.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.0.0-rc.3.tgz#fde417a85b9453a3989a8c8a6ce6ff896f5783fd"
   dependencies:
     tslib "^1.7.1"
 
@@ -139,6 +145,12 @@
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-5.0.5.tgz#5019bdea93aa8a3c45a83eb521064916dea30e6f"
 
+"@angular/material@5.0.0-rc.3":
+  version "5.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.0.0-rc.3.tgz#d27b8e5786d2ae0281fbc42806cc275b160627e7"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/platform-browser-dynamic@^5.0.0":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.0.5.tgz#d7ac74c5ffd4c9a133ba90af160402266e92351d"
@@ -156,6 +168,10 @@
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.0.5.tgz#9bf64480b264fd8cdfa96a6a19bfbc257274525a"
   dependencies:
     tslib "^1.7.1"
+
+"@ng-bootstrap/ng-bootstrap@1.0.0-beta.6":
+  version "1.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-1.0.0-beta.6.tgz#676cb6c1c6334c3b34d0d549938386ba99796462"
 
 "@ngtools/json-schema@1.1.0", "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
