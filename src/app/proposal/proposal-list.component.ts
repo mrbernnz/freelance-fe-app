@@ -1,27 +1,43 @@
 import { Component } from '@angular/core'
+import { Observable } from 'rxjs/Rx'
+import { Router } from '@angular/router'
 import { Proposal } from './proposal'
+import { ProposalService } from './proposal.service'
 
 @Component({
   selector: 'proposal-list',
-  templateUrl: './proposal-list.component.html'
+  templateUrl: 'proposal-list.component.html',
+  styleUrls: [ 'proposal-list.component.css' ],
+  providers: [ ProposalService ]
 })
 
 export class PropoalListComponent {
-  proposalOne: Proposal = new Proposal(15,
-    'Abc Company',
-    'http://portfolio.noelsagaille.com',
-    'RoR', 150, 120, 14,
-    'noel@sagaille.com'
-  )
-  proposalTwo: Proposal = new Proposal(15,
-    'Def Company',
-    'http://portfolio.noelsagaille.com',
-    'React', 150, 120, 14,
-    'noel@sagaille.com'
-  )
+  proposals: Proposal[]
+  errorMessage: string
+  mode = 'Observable'
 
-  proposals: Proposal[] = [
-    this.proposalOne,
-    this.proposalTwo
-  ]
+  constructor(
+    private proposalService: ProposalService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    let timer = Observable.timer(0,5000)
+    timer.subscribe(() => this.getProposals())
+  }
+
+  getProposals() {
+    this
+      .proposalService
+      .getProposals()
+      .subscribe(
+        proposals => this.proposals = proposals,
+        error => this.errorMessage = <any>error
+      )
+  }
+
+  goToShow(proposal: Proposal): void {
+    let link = ['/proposal', proposal.id]
+    this.router.navigate(link)
+  }
 }

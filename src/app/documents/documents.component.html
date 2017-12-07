@@ -5,10 +5,11 @@
     <div class='card-block'>
       <img class='card-img-top' src='{{doc.image_url}}' alt='document image'>
       <h4 class='card-title'>{{doc.title}}</h4>
+      <p class='card-text'>
+        <small class='text-muted'>{{doc.created_at | date}}</small>
+      </p>
       <p>{{doc.description}}</p>
       <a class='btn btn-lg btn-primary' href={{file_url}}>Download File</a>
-
-      <p class='card-text'><small class='text-muted'>{{doc.image_url}}</small></p>
     </div>
 </li>
 </ul>

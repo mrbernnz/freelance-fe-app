@@ -1,35 +1,34 @@
-import { Component } from '@angular/core'
-import { Document } from './documents'
+import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs/Rx'
+import { Document } from './document'
+import { DocumentService } from './document.service'
 
 @Component({
   selector: 'documents',
-  templateUrl: './documents.component.html'
+  templateUrl: './documents.component.html',
+  providers: [ DocumentService ]
 })
 
 export class DocumentsComponent {
   pageTitle: string = 'Document Dashboard'
+  documents: Document[]
+  errorMessage: string
+  mode = 'Observable'
 
-  documents: Document[] = [
-    {
-      title: 'My first doc',
-      description: 'Foo bar',
-      file_url: '/path/to/file',
-      updated_at: 'some date',
-      image_url: 'some image'
-    },
-    {
-      title: 'My second doc',
-      description: 'Foo bar',
-      file_url: '/path/to/file',
-      updated_at: 'some date',
-      image_url: 'some image'
-    },
-    {
-      title: 'My third doc',
-      description: 'Foo bar',
-      file_url: '/path/to/file',
-      updated_at: 'some date',
-      image_url: 'some image'
-    }
-  ]
+  constructor(private documentService: DocumentService) {}
+
+  ngOnInit() {
+    let timer = Observable.timer(0,5000)
+    timer.subscribe(() => this.getDocuments())
+  }
+
+  getDocuments() {
+    this
+      .documentService
+      .getDocument()
+      .subscribe(
+        documents => this.documents = documents,
+        error => this.errorMessage = <any>error
+      )
+  }
 }
